@@ -2,8 +2,8 @@ name: IDX Scanner
 
 on:
   schedule:
-    - cron: "0 5 * * 1-5"   # 12:00 WIB
-    - cron: "0 11 * * 1-5"  # 18:00 WIB
+    - cron: "0 4 * * 1-5"   # 11:00 WIB
+    - cron: "0 10 * * 1-5"  # 17:00 WIB
   workflow_dispatch:
 
 permissions:
@@ -45,7 +45,28 @@ jobs:
           YF_PERIOD: "6mo"
           YF_INTERVAL: "1d"
           MAX_TICKERS: "0"
+          RETRY_COUNT: "4"
+          BASE_BACKOFF: "2.5"
+          SLEEP_EVERY: "1"
+          SLEEP_SECONDS: "6"
+          JITTER_SECONDS: "2"
         run: python scanner.py
+
+      - name: Show output preview
+        if: always()
+        run: |
+          echo "=== alert.csv ==="
+          if [ -f alert.csv ]; then
+            sed -n '1,40p' alert.csv
+          else
+            echo "alert.csv not found"
+          fi
+          echo "=== scanner.log tail ==="
+          if [ -f scanner.log ]; then
+            tail -n 80 scanner.log
+          else
+            echo "scanner.log not found"
+          fi
 
       - name: Upload logs
         if: always()
