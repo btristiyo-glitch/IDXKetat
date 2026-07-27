@@ -1,7 +1,7 @@
 import os
 import csv
-import math
 import time
+import random
 import logging
 from logging.handlers import RotatingFileHandler
 from datetime import datetime, timedelta, timezone, time as dt_time
@@ -23,9 +23,10 @@ LOG_FILE = os.getenv("SCANNER_LOG_FILE", os.path.join(BASE_DIR, "scanner.log"))
 
 YF_PERIOD = os.getenv("YF_PERIOD", "6mo")
 YF_INTERVAL = os.getenv("YF_INTERVAL", "1d")
-MAX_TICKERS = int(os.getenv("MAX_TICKERS", "0"))  # 0 = all
 
+MAX_TICKERS = int(os.getenv("MAX_TICKERS", "0"))  # 0 = all
 RUN_ONLY_OPEN_SESSION = os.getenv("RUN_ONLY_OPEN_SESSION", "false").lower() == "true"
+
 OPEN_START = dt_time(9, 0)
 OPEN_END = dt_time(10, 30)
 
@@ -39,14 +40,16 @@ MED_ACCUM = 250_000_000
 MED_DIST = -250_000_000
 STRONG_DIST = -1_000_000_000
 
-# Breakout / signal filters
 BREAKOUT_LOOKBACK = 20
 BREAKOUT_BUFFER_PCT = 0.002
 PULLBACK_WINDOW = 5
 
-# Rate limiting
-SLEEP_EVERY = 3
-SLEEP_SECONDS = 2
+# Anti rate limit
+RETRY_COUNT = int(os.getenv("RETRY_COUNT", "4"))
+BASE_BACKOFF = float(os.getenv("BASE_BACKOFF", "2.5"))
+SLEEP_EVERY = int(os.getenv("SLEEP_EVERY", "1"))
+SLEEP_SECONDS = float(os.getenv("SLEEP_SECONDS", "6"))
+JITTER_SECONDS = float(os.getenv("JITTER_SECONDS", "2.0"))
 
 # =========================
 # LOGGING
@@ -77,15 +80,20 @@ def in_open_session():
 def load_tickers(path):
     if not os.path.exists(path):
         raise FileNotFoundError(f"Ticker file not found: {path}")
+
     tickers = []
     with open(path, "r", encoding="utf-8") as f:
         for line in f:
             t = line.strip().upper()
             if not t or t.startswith("#"):
                 continue
-            tickers.append(t)
+            if "." in t:
+                t = t.split(".")[0]
+            tickers.append(f"{t}.JK")
+
     if MAX_TICKERS and MAX_TICKERS > 0:
         tickers = tickers[:MAX_TICKERS]
+
     return tickers
 
 def load_sectors(path):
@@ -102,6 +110,8 @@ def load_sectors(path):
                 t = str(row[ticker_col]).strip().upper()
                 s = str(row[sector_col]).strip()
                 if t:
+                    if "." not in t:
+                        t = f"{t}.JK"
                     sectors[t] = s
     except Exception as e:
         logger.warning(f"Failed to read sector file: {e}")
@@ -114,11 +124,7 @@ def clean_yf_df(df):
         df.columns = ["_".join([str(x) for x in col if str(x) != ""]).strip() for col in df.columns.values]
     df = df.copy()
     df.columns = [str(c).strip().title() for c in df.columns]
-    if "Adj Close" in df.columns and "Adjclose" not in df.columns:
-        df["Adjclose"] = df["Adj Close"]
-    if "Volume" in df.columns:
-        df["Volume"] = pd.to_numeric(df["Volume"], errors="coerce")
-    for col in ["Open", "High", "Low", "Close", "Adj Close", "Adjclose"]:
+    for col in ["Open", "High", "Low", "Close", "Adj Close", "Adjclose", "Volume"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
     df = df.dropna(subset=[c for c in ["Close", "Volume"] if c in df.columns])
@@ -126,26 +132,53 @@ def clean_yf_df(df):
 
 def fetch_history(ticker):
     import yfinance as yf
-    try:
-        df = yf.download(
-            ticker,
-            period=YF_PERIOD,
-            interval=YF_INTERVAL,
-            auto_adjust=False,
-            progress=False,
-            threads=False,
-        )
-        return clean_yf_df(df)
-    except Exception as e:
-        logger.warning(f"{ticker} download failed: {e}")
-        return pd.DataFrame()
+
+    ua_headers = [
+        {"User-Agent": "Mozilla/5.0"},
+        {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"},
+        {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"},
+    ]
+
+    for attempt in range(1, RETRY_COUNT + 1):
+        try:
+            session = requests.Session()
+            session.headers.update(random.choice(ua_headers))
+
+            df = yf.download(
+                ticker,
+                period=YF_PERIOD,
+                interval=YF_INTERVAL,
+                auto_adjust=False,
+                progress=False,
+                threads=False,
+                session=session,
+            )
+
+            df = clean_yf_df(df)
+            if not df.empty:
+                return df
+
+            logger.warning(f"{ticker} empty data on attempt {attempt}")
+        except Exception as e:
+            msg = str(e).lower()
+            logger.warning(f"{ticker} failed on attempt {attempt}: {e}")
+
+            if "rate limited" in msg or "too many requests" in msg:
+                sleep_for = BASE_BACKOFF * (2 ** (attempt - 1)) + random.uniform(0, JITTER_SECONDS)
+                time.sleep(sleep_for)
+            else:
+                time.sleep(1.0)
+
+        time.sleep(random.uniform(0.5, 1.5))
+
+    return pd.DataFrame()
 
 def rsi(series, period=14):
     delta = series.diff()
     gain = delta.clip(lower=0)
     loss = -delta.clip(upper=0)
-    avg_gain = gain.ewm(alpha=1/period, min_periods=period, adjust=False).mean()
-    avg_loss = loss.ewm(alpha=1/period, min_periods=period, adjust=False).mean()
+    avg_gain = gain.ewm(alpha=1 / period, min_periods=period, adjust=False).mean()
+    avg_loss = loss.ewm(alpha=1 / period, min_periods=period, adjust=False).mean()
     rs = avg_gain / avg_loss.replace(0, np.nan)
     return 100 - (100 / (1 + rs))
 
@@ -194,8 +227,7 @@ def flow_score(flow_m):
 def breakout_level(df):
     if len(df) < BREAKOUT_LOOKBACK + 2:
         return np.nan
-    prior_high = df["High"].shift(1).rolling(BREAKOUT_LOOKBACK).max().iloc[-1]
-    return prior_high
+    return df["High"].shift(1).rolling(BREAKOUT_LOOKBACK).max().iloc[-1]
 
 def support_level(df):
     if len(df) < PULLBACK_WINDOW + 2:
@@ -230,30 +262,20 @@ def score_ticker(df, ticker, sector=""):
 
     breakout = breakout_level(df)
     support = support_level(df)
-    last_high = safe_last(df["High"])
-    last_low = safe_last(df["Low"])
-    last_open = safe_last(df["Open"])
-
     rv_ratio = vol / avg_vol20 if avg_vol20 > 0 else np.nan
 
-    # Flow proxy from price * volume change
-    dollar_flow = (df["Close"] * df["Volume"]).rolling(5).sum().iloc[-1] - (df["Close"] * df["Volume"]).rolling(5).sum().iloc[-6] if len(df) > 6 else np.nan
-    if not np.isfinite(dollar_flow):
-        dollar_flow = 0.0
-
-    # Use recent signed pressure
     recent_ret = df["Close"].pct_change().tail(5)
-    signed_flow = float((recent_ret.fillna(0).values * df["Volume"].tail(5).fillna(0).values).sum() * close)
+    recent_vol = df["Volume"].tail(5).fillna(0).values
+    signed_flow = float((recent_ret.fillna(0).values * recent_vol).sum() * close)
+    if not np.isfinite(signed_flow):
+        signed_flow = 0.0
 
-    flow_m = signed_flow
-    fscore = flow_score(flow_m)
-    flabel = flow_label(flow_m)
+    fscore = flow_score(signed_flow)
+    flabel = flow_label(signed_flow)
 
-    # Breakout / pullback logic
     breakout_confirmed = np.isfinite(breakout) and close > breakout * (1 + BREAKOUT_BUFFER_PCT)
     pullback_ok = np.isfinite(support) and close <= support * 1.03
 
-    # Momentum score
     score = 0
     score += fscore
     score += 2 if breakout_confirmed else 0
@@ -272,7 +294,6 @@ def score_ticker(df, ticker, sector=""):
     tp1 = None
     tp2 = None
 
-    # Long breakout
     if breakout_confirmed and score >= 5 and rv_ratio >= MIN_RVOL:
         direction = "long"
         setup_type = "BREAKOUT"
@@ -281,7 +302,6 @@ def score_ticker(df, ticker, sector=""):
         tp1 = round(float(entry + 2 * (entry - sl)), 2)
         tp2 = round(float(entry + 3 * (entry - sl)), 2)
 
-    # Long pullback
     elif pullback_ok and score >= 4 and rsi_val >= 45 and macd_h > -0.5:
         direction = "long"
         setup_type = "PULLBACK"
@@ -290,8 +310,7 @@ def score_ticker(df, ticker, sector=""):
         tp1 = round(float(entry + 2 * (entry - sl)), 2)
         tp2 = round(float(entry + 3 * (entry - sl)), 2)
 
-    # Short distribution
-    elif flow_m <= MED_DIST and rsi_val < 45 and macd_h < 0 and close < df["Close"].rolling(20).mean().iloc[-1]:
+    elif signed_flow <= MED_DIST and rsi_val < 45 and macd_h < 0 and close < df["Close"].rolling(20).mean().iloc[-1]:
         direction = "short"
         setup_type = "DISTRIBUTION"
         entry = round(float(close), 2)
@@ -306,10 +325,11 @@ def score_ticker(df, ticker, sector=""):
     reason = (
         f"{ticker} menunjukkan {flabel.lower()} dengan RVOL {rv_ratio:.2f}x, RSI {rsi_val:.1f}, dan MACD histogram {macd_h:.2f}. "
         f"Strukturnya mendukung {setup_type.lower()} karena {('breakout atas resistance' if setup_type == 'BREAKOUT' else 'pantulan dari support' if setup_type == 'PULLBACK' else 'tekanan jual masih dominan')}. "
-        f"Flow dan volume mendukung arah ini, jadi setup ini layak dipantau."
+        f"Flow dan volume mendukung arah ini."
     )
 
     return {
+        "timestamp": now_jakarta().strftime("%Y-%m-%d %H:%M:%S"),
         "ticker": ticker,
         "sector": sector,
         "direction": direction,
@@ -322,15 +342,12 @@ def score_ticker(df, ticker, sector=""):
         "macd_hist": round(float(macd_h), 4),
         "atr": round(float(atr_val), 2),
         "rvol": round(float(rv_ratio), 2),
-        "flow_m": round(float(flow_m), 2),
+        "flow_m": round(float(signed_flow), 2),
         "flow_label": flabel,
         "score": score,
         "confidence": confidence,
         "reason": reason,
         "last_close": round(float(close), 2),
-        "last_high": round(float(last_high), 2) if np.isfinite(last_high) else "",
-        "last_low": round(float(last_low), 2) if np.isfinite(last_low) else "",
-        "last_open": round(float(last_open), 2) if np.isfinite(last_open) else "",
         "avg_vol20": int(avg_vol20) if np.isfinite(avg_vol20) else "",
     }
 
@@ -339,7 +356,7 @@ def save_results(rows, path):
         "timestamp", "ticker", "sector", "direction", "setup_type",
         "entry", "stop_loss", "tp1", "tp2", "rsi", "macd_hist", "atr",
         "rvol", "flow_m", "flow_label", "score", "confidence", "reason",
-        "last_close", "last_open", "last_high", "last_low", "avg_vol20"
+        "last_close", "avg_vol20"
     ]
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", newline="", encoding="utf-8") as f:
@@ -359,32 +376,28 @@ def main():
     logger.info(f"Loaded {len(tickers)} tickers")
     results = []
     scanned = 0
+    failed = 0
 
     for i, ticker in enumerate(tickers, 1):
-        try:
-            df = fetch_history(ticker)
-            if df.empty:
-                logger.info(f"{ticker} - no data")
-                continue
+        df = fetch_history(ticker)
+        if df.empty:
+            failed += 1
+            logger.info(f"{ticker} - no data")
+            continue
 
-            row = score_ticker(df, ticker, sectors.get(ticker, ""))
-            scanned += 1
+        scanned += 1
+        row = score_ticker(df, ticker, sectors.get(ticker, ""))
+        if row:
+            results.append(row)
+            logger.info(f"{ticker} - {row['direction'].upper()} {row['setup_type']} score={row['score']} flow={row['flow_label']}")
 
-            if row:
-                row["timestamp"] = now_jakarta().strftime("%Y-%m-%d %H:%M:%S")
-                results.append(row)
-                logger.info(f"{ticker} - {row['direction'].upper()} {row['setup_type']} score={row['score']} flow={row['flow_label']}")
-
-            if i % SLEEP_EVERY == 0:
-                time.sleep(SLEEP_SECONDS)
-
-        except Exception as e:
-            logger.exception(f"{ticker} failed: {e}")
+        if i % SLEEP_EVERY == 0:
+            time.sleep(SLEEP_SECONDS + random.uniform(0, JITTER_SECONDS))
 
     results = sorted(results, key=lambda x: (x["score"], x["confidence"]), reverse=True)
     save_results(results, OUTPUT_FILE)
 
-    logger.info(f"SCAN DONE | scanned={scanned} setups={len(results)} output={OUTPUT_FILE}")
+    logger.info(f"SCAN DONE | scanned={scanned} failed={failed} setups={len(results)} output={OUTPUT_FILE}")
 
 if __name__ == "__main__":
     main()
