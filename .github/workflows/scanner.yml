@@ -1,64 +1,66 @@
-name: Indonesian Market Scanner
+name: IDX Scanner
 
 on:
   schedule:
-    - cron: '55 1 * * 1-5'   # 08:55 WIB
-    - cron: '05 2 * * 1-5'   # 09:05 WIB
-    - cron: '15 2 * * 1-5'   # 09:15 WIB
-    - cron: '30 2 * * 1-5'   # 09:30 WIB
+    - cron: "0 5 * * 1-5"   # 12:00 WIB
+    - cron: "0 11 * * 1-5"  # 18:00 WIB
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: scanner-idx
+  group: idx-scanner
   cancel-in-progress: false
 
 jobs:
   run-scanner:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    env:
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      PYTHONUNBUFFERED: "1"
 
     steps:
-      - name: Checkout
+      - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "pip"
+          cache: pip
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas numpy requests
-
-      - name: Validate Telegram env
-        run: |
-          python - <<'PY'
-          import os
-          token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
-          chat  = os.getenv("TELEGRAM_CHAT_ID", "").strip()
-          print("TOKEN_OK =", bool(token))
-          print("CHAT_OK =", bool(chat))
-          if not token or not chat:
-              raise SystemExit("Missing Telegram secrets in GitHub Actions")
-          PY
+          pip install -r requirements.txt
 
       - name: Run scanner
+        env:
+          RUN_ONLY_OPEN_SESSION: "false"
+          SCANNER_OUTPUT_FILE: "alert.csv"
+          SCANNER_LOG_FILE: "scanner.log"
+          TICKER_FILE: "stocks.txt"
+          SECTOR_FILE: "sectors.csv"
+          YF_PERIOD: "6mo"
+          YF_INTERVAL: "1d"
+          MAX_TICKERS: "0"
         run: python scanner.py
 
       - name: Upload logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: scanner-logs
+          name: scanner-artifacts
           path: |
             scanner.log
             alert.csv
+
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add alert.csv scanner.log
+          git diff --cached --quiet || git commit -m "Update scanner outputs"
+          git push
