@@ -1,1 +1,1 @@
-timestamp,ticker,sector,direction,setup_type,entry,stop_loss,tp1,tp2,rsi,macd_hist,atr,rvol,flow_m,flow_label,score,confidence,reason,last_close,last_open,last_high,last_low,avg_vol20
+timestamp,ticker,sector,direction,setup_type,entry,stop_loss,tp1,tp2,rsi,macd_hist,atr,rvol,flow_m,flow_label,score,confidence,reason,last_close,avg_vol20
