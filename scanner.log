@@ -4045,3 +4045,405 @@
 2026-11-19 19:05:55,757 | INFO | WIFI.JK - no data
 2026-11-19 19:05:55,757 | INFO | SCAN DONE | scanned=0 failed=80 setups=0 output=alert.csv
 2026-11-20 12:17:41,890 | INFO | Loaded 80 tickers
+2026-11-20 18:24:31,658 | INFO | Loaded 80 tickers
+2026-11-20 18:24:34,089 | WARNING | AADI.JK empty data on attempt 1
+2026-11-20 18:24:36,065 | WARNING | AADI.JK empty data on attempt 2
+2026-11-20 18:24:38,291 | WARNING | AADI.JK empty data on attempt 3
+2026-11-20 18:24:40,325 | WARNING | AADI.JK empty data on attempt 4
+2026-11-20 18:24:41,450 | INFO | AADI.JK - no data
+2026-11-20 18:24:42,723 | WARNING | ACES.JK empty data on attempt 1
+2026-11-20 18:24:44,401 | WARNING | ACES.JK empty data on attempt 2
+2026-11-20 18:24:46,355 | WARNING | ACES.JK empty data on attempt 3
+2026-11-20 18:24:48,777 | WARNING | ACES.JK empty data on attempt 4
+2026-11-20 18:24:49,610 | INFO | ACES.JK - no data
+2026-11-20 18:24:50,916 | WARNING | ADMR.JK empty data on attempt 1
+2026-11-20 18:24:53,255 | WARNING | ADMR.JK empty data on attempt 2
+2026-11-20 18:24:55,915 | WARNING | ADMR.JK empty data on attempt 3
+2026-11-20 18:24:57,836 | WARNING | ADMR.JK empty data on attempt 4
+2026-11-20 18:24:58,956 | INFO | ADMR.JK - no data
+2026-11-20 18:25:00,235 | WARNING | ADRO.JK empty data on attempt 1
+2026-11-20 18:25:02,715 | WARNING | ADRO.JK empty data on attempt 2
+2026-11-20 18:25:04,727 | WARNING | ADRO.JK empty data on attempt 3
+2026-11-20 18:25:07,449 | WARNING | ADRO.JK empty data on attempt 4
+2026-11-20 18:25:08,770 | INFO | ADRO.JK - no data
+2026-11-20 18:25:10,103 | WARNING | AKRA.JK empty data on attempt 1
+2026-11-20 18:25:11,985 | WARNING | AKRA.JK empty data on attempt 2
+2026-11-20 18:25:14,470 | WARNING | AKRA.JK empty data on attempt 3
+2026-11-20 18:25:16,646 | WARNING | AKRA.JK empty data on attempt 4
+2026-11-20 18:25:18,015 | INFO | AKRA.JK - no data
+2026-11-20 18:25:19,179 | WARNING | AMMN.JK empty data on attempt 1
+2026-11-20 18:25:21,955 | WARNING | AMMN.JK empty data on attempt 2
+2026-11-20 18:25:24,642 | WARNING | AMMN.JK empty data on attempt 3
+2026-11-20 18:25:26,709 | WARNING | AMMN.JK empty data on attempt 4
+2026-11-20 18:25:28,154 | INFO | AMMN.JK - no data
+2026-11-20 18:25:29,460 | WARNING | AMRT.JK empty data on attempt 1
+2026-11-20 18:25:31,462 | WARNING | AMRT.JK empty data on attempt 2
+2026-11-20 18:25:33,457 | WARNING | AMRT.JK empty data on attempt 3
+2026-11-20 18:25:35,893 | WARNING | AMRT.JK empty data on attempt 4
+2026-11-20 18:25:36,654 | INFO | AMRT.JK - no data
+2026-11-20 18:25:37,966 | WARNING | ANTM.JK empty data on attempt 1
+2026-11-20 18:25:40,490 | WARNING | ANTM.JK empty data on attempt 2
+2026-11-20 18:25:42,170 | WARNING | ANTM.JK empty data on attempt 3
+2026-11-20 18:25:44,567 | WARNING | ANTM.JK empty data on attempt 4
+2026-11-20 18:25:45,998 | INFO | ANTM.JK - no data
+2026-11-20 18:25:47,275 | WARNING | ARTO.JK empty data on attempt 1
+2026-11-20 18:25:49,223 | WARNING | ARTO.JK empty data on attempt 2
+2026-11-20 18:25:51,374 | WARNING | ARTO.JK empty data on attempt 3
+2026-11-20 18:25:53,658 | WARNING | ARTO.JK empty data on attempt 4
+2026-11-20 18:25:54,285 | INFO | ARTO.JK - no data
+2026-11-20 18:25:55,780 | WARNING | ASII.JK empty data on attempt 1
+2026-11-20 18:25:57,987 | WARNING | ASII.JK empty data on attempt 2
+2026-11-20 18:26:00,660 | WARNING | ASII.JK empty data on attempt 3
+2026-11-20 18:26:03,344 | WARNING | ASII.JK empty data on attempt 4
+2026-11-20 18:26:04,612 | INFO | ASII.JK - no data
+2026-11-20 18:26:05,765 | WARNING | BBCA.JK empty data on attempt 1
+2026-11-20 18:26:08,062 | WARNING | BBCA.JK empty data on attempt 2
+2026-11-20 18:26:10,759 | WARNING | BBCA.JK empty data on attempt 3
+2026-11-20 18:26:12,999 | WARNING | BBCA.JK empty data on attempt 4
+2026-11-20 18:26:13,616 | INFO | BBCA.JK - no data
+2026-11-20 18:26:15,166 | WARNING | BBNI.JK empty data on attempt 1
+2026-11-20 18:26:17,567 | WARNING | BBNI.JK empty data on attempt 2
+2026-11-20 18:26:19,876 | WARNING | BBNI.JK empty data on attempt 3
+2026-11-20 18:26:22,262 | WARNING | BBNI.JK empty data on attempt 4
+2026-11-20 18:26:22,984 | INFO | BBNI.JK - no data
+2026-11-20 18:26:24,502 | WARNING | BBRI.JK empty data on attempt 1
+2026-11-20 18:26:26,936 | WARNING | BBRI.JK empty data on attempt 2
+2026-11-20 18:26:29,283 | WARNING | BBRI.JK empty data on attempt 3
+2026-11-20 18:26:31,979 | WARNING | BBRI.JK empty data on attempt 4
+2026-11-20 18:26:33,444 | INFO | BBRI.JK - no data
+2026-11-20 18:26:34,873 | WARNING | BBTN.JK empty data on attempt 1
+2026-11-20 18:26:37,933 | WARNING | BBTN.JK empty data on attempt 2
+2026-11-20 18:26:40,217 | WARNING | BBTN.JK empty data on attempt 3
+2026-11-20 18:26:42,674 | WARNING | BBTN.JK empty data on attempt 4
+2026-11-20 18:26:43,748 | INFO | BBTN.JK - no data
+2026-11-20 18:26:45,020 | WARNING | BKSL.JK empty data on attempt 1
+2026-11-20 18:26:47,042 | WARNING | BKSL.JK empty data on attempt 2
+2026-11-20 18:26:49,203 | WARNING | BKSL.JK empty data on attempt 3
+2026-11-20 18:26:51,435 | WARNING | BKSL.JK empty data on attempt 4
+2026-11-20 18:26:52,222 | INFO | BKSL.JK - no data
+2026-11-20 18:26:53,511 | WARNING | BMRI.JK empty data on attempt 1
+2026-11-20 18:26:56,138 | WARNING | BMRI.JK empty data on attempt 2
+2026-11-20 18:26:58,166 | WARNING | BMRI.JK empty data on attempt 3
+2026-11-20 18:27:00,918 | WARNING | BMRI.JK empty data on attempt 4
+2026-11-20 18:27:01,999 | INFO | BMRI.JK - no data
+2026-11-20 18:27:03,386 | WARNING | BRMS.JK empty data on attempt 1
+2026-11-20 18:27:05,637 | WARNING | BRMS.JK empty data on attempt 2
+2026-11-20 18:27:08,524 | WARNING | BRMS.JK empty data on attempt 3
+2026-11-20 18:27:10,366 | WARNING | BRMS.JK empty data on attempt 4
+2026-11-20 18:27:11,735 | INFO | BRMS.JK - no data
+2026-11-20 18:27:12,920 | WARNING | BRPT.JK empty data on attempt 1
+2026-11-20 18:27:15,835 | WARNING | BRPT.JK empty data on attempt 2
+2026-11-20 18:27:18,325 | WARNING | BRPT.JK empty data on attempt 3
+2026-11-20 18:27:20,203 | WARNING | BRPT.JK empty data on attempt 4
+2026-11-20 18:27:21,105 | INFO | BRPT.JK - no data
+2026-11-20 18:27:22,490 | WARNING | BSDE.JK empty data on attempt 1
+2026-11-20 18:27:24,282 | WARNING | BSDE.JK empty data on attempt 2
+2026-11-20 18:27:26,810 | WARNING | BSDE.JK empty data on attempt 3
+2026-11-20 18:27:29,377 | WARNING | BSDE.JK empty data on attempt 4
+2026-11-20 18:27:30,486 | INFO | BSDE.JK - no data
+2026-11-20 18:27:32,105 | WARNING | BUKA.JK empty data on attempt 1
+2026-11-20 18:27:34,723 | WARNING | BUKA.JK empty data on attempt 2
+2026-11-20 18:27:37,269 | WARNING | BUKA.JK empty data on attempt 3
+2026-11-20 18:27:40,443 | WARNING | BUKA.JK empty data on attempt 4
+2026-11-20 18:27:41,666 | INFO | BUKA.JK - no data
+2026-11-20 18:27:43,045 | WARNING | BUMI.JK empty data on attempt 1
+2026-11-20 18:27:45,688 | WARNING | BUMI.JK empty data on attempt 2
+2026-11-20 18:27:47,689 | WARNING | BUMI.JK empty data on attempt 3
+2026-11-20 18:27:49,926 | WARNING | BUMI.JK empty data on attempt 4
+2026-11-20 18:27:51,381 | INFO | BUMI.JK - no data
+2026-11-20 18:27:52,566 | WARNING | CBDK.JK empty data on attempt 1
+2026-11-20 18:27:55,182 | WARNING | CBDK.JK empty data on attempt 2
+2026-11-20 18:27:57,035 | WARNING | CBDK.JK empty data on attempt 3
+2026-11-20 18:27:59,411 | WARNING | CBDK.JK empty data on attempt 4
+2026-11-20 18:28:00,180 | INFO | CBDK.JK - no data
+2026-11-20 18:28:01,955 | WARNING | CMRY.JK empty data on attempt 1
+2026-11-20 18:28:04,246 | WARNING | CMRY.JK empty data on attempt 2
+2026-11-20 18:28:07,856 | WARNING | CMRY.JK empty data on attempt 3
+2026-11-20 18:28:10,211 | WARNING | CMRY.JK empty data on attempt 4
+2026-11-20 18:28:11,652 | INFO | CMRY.JK - no data
+2026-11-20 18:28:13,551 | WARNING | CPIN.JK empty data on attempt 1
+2026-11-20 18:28:20,400 | WARNING | CPIN.JK empty data on attempt 2
+2026-11-20 18:28:22,621 | WARNING | CPIN.JK empty data on attempt 3
+2026-11-20 18:28:25,029 | WARNING | CPIN.JK empty data on attempt 4
+2026-11-20 18:28:25,769 | INFO | CPIN.JK - no data
+2026-11-20 18:28:26,963 | WARNING | CTRA.JK empty data on attempt 1
+2026-11-20 18:28:29,094 | WARNING | CTRA.JK empty data on attempt 2
+2026-11-20 18:28:31,285 | WARNING | CTRA.JK empty data on attempt 3
+2026-11-20 18:28:33,593 | WARNING | CTRA.JK empty data on attempt 4
+2026-11-20 18:28:34,621 | INFO | CTRA.JK - no data
+2026-11-20 18:28:35,814 | WARNING | CUAN.JK empty data on attempt 1
+2026-11-20 18:28:38,542 | WARNING | CUAN.JK empty data on attempt 2
+2026-11-20 18:28:41,338 | WARNING | CUAN.JK empty data on attempt 3
+2026-11-20 18:28:43,645 | WARNING | CUAN.JK empty data on attempt 4
+2026-11-20 18:28:44,704 | INFO | CUAN.JK - no data
+2026-11-20 18:28:45,883 | WARNING | DEWA.JK empty data on attempt 1
+2026-11-20 18:28:48,045 | WARNING | DEWA.JK empty data on attempt 2
+2026-11-20 18:28:50,221 | WARNING | DEWA.JK empty data on attempt 3
+2026-11-20 18:28:52,860 | WARNING | DEWA.JK empty data on attempt 4
+2026-11-20 18:28:54,294 | INFO | DEWA.JK - no data
+2026-11-20 18:28:55,495 | WARNING | DSNG.JK empty data on attempt 1
+2026-11-20 18:28:57,842 | WARNING | DSNG.JK empty data on attempt 2
+2026-11-20 18:29:00,491 | WARNING | DSNG.JK empty data on attempt 3
+2026-11-20 18:29:02,839 | WARNING | DSNG.JK empty data on attempt 4
+2026-11-20 18:29:03,478 | INFO | DSNG.JK - no data
+2026-11-20 18:29:04,818 | WARNING | ELSA.JK empty data on attempt 1
+2026-11-20 18:29:06,707 | WARNING | ELSA.JK empty data on attempt 2
+2026-11-20 18:29:08,938 | WARNING | ELSA.JK empty data on attempt 3
+2026-11-20 18:29:11,501 | WARNING | ELSA.JK empty data on attempt 4
+2026-11-20 18:29:12,076 | INFO | ELSA.JK - no data
+2026-11-20 18:29:13,416 | WARNING | EMTK.JK empty data on attempt 1
+2026-11-20 18:29:15,773 | WARNING | EMTK.JK empty data on attempt 2
+2026-11-20 18:29:18,472 | WARNING | EMTK.JK empty data on attempt 3
+2026-11-20 18:29:20,887 | WARNING | EMTK.JK empty data on attempt 4
+2026-11-20 18:29:21,688 | INFO | EMTK.JK - no data
+2026-11-20 18:29:22,896 | WARNING | ENRG.JK empty data on attempt 1
+2026-11-20 18:29:25,301 | WARNING | ENRG.JK empty data on attempt 2
+2026-11-20 18:29:28,019 | WARNING | ENRG.JK empty data on attempt 3
+2026-11-20 18:29:30,606 | WARNING | ENRG.JK empty data on attempt 4
+2026-11-20 18:29:31,422 | INFO | ENRG.JK - no data
+2026-11-20 18:29:32,884 | WARNING | ERAA.JK empty data on attempt 1
+2026-11-20 18:29:34,804 | WARNING | ERAA.JK empty data on attempt 2
+2026-11-20 18:29:37,251 | WARNING | ERAA.JK empty data on attempt 3
+2026-11-20 18:29:39,634 | WARNING | ERAA.JK empty data on attempt 4
+2026-11-20 18:29:40,582 | INFO | ERAA.JK - no data
+2026-11-20 18:29:41,940 | WARNING | ESSA.JK empty data on attempt 1
+2026-11-20 18:29:44,295 | WARNING | ESSA.JK empty data on attempt 2
+2026-11-20 18:29:46,395 | WARNING | ESSA.JK empty data on attempt 3
+2026-11-20 18:29:49,227 | WARNING | ESSA.JK empty data on attempt 4
+2026-11-20 18:29:49,802 | INFO | ESSA.JK - no data
+2026-11-20 18:29:51,134 | WARNING | EXCL.JK empty data on attempt 1
+2026-11-20 18:29:53,587 | WARNING | EXCL.JK empty data on attempt 2
+2026-11-20 18:29:56,263 | WARNING | EXCL.JK empty data on attempt 3
+2026-11-20 18:29:58,222 | WARNING | EXCL.JK empty data on attempt 4
+2026-11-20 18:29:59,140 | INFO | EXCL.JK - no data
+2026-11-20 18:30:00,402 | WARNING | GGRM.JK empty data on attempt 1
+2026-11-20 18:30:02,868 | WARNING | GGRM.JK empty data on attempt 2
+2026-11-20 18:30:05,512 | WARNING | GGRM.JK empty data on attempt 3
+2026-11-20 18:30:07,250 | WARNING | GGRM.JK empty data on attempt 4
+2026-11-20 18:30:08,304 | INFO | GGRM.JK - no data
+2026-11-20 18:30:09,796 | WARNING | GOTO.JK empty data on attempt 1
+2026-11-20 18:30:12,980 | WARNING | GOTO.JK empty data on attempt 2
+2026-11-20 18:30:16,305 | WARNING | GOTO.JK empty data on attempt 3
+2026-11-20 18:30:19,808 | WARNING | GOTO.JK empty data on attempt 4
+2026-11-20 18:30:20,924 | INFO | GOTO.JK - no data
+2026-11-20 18:30:22,572 | WARNING | HEAL.JK empty data on attempt 1
+2026-11-20 18:30:27,084 | WARNING | HEAL.JK empty data on attempt 2
+2026-11-20 18:30:31,339 | WARNING | HEAL.JK empty data on attempt 3
+2026-11-20 18:30:36,647 | WARNING | HEAL.JK empty data on attempt 4
+2026-11-20 18:30:37,317 | INFO | HEAL.JK - no data
+2026-11-20 18:30:39,807 | WARNING | HRTA.JK empty data on attempt 1
+2026-11-20 18:30:43,286 | WARNING | HRTA.JK empty data on attempt 2
+2026-11-20 18:30:46,024 | WARNING | HRTA.JK empty data on attempt 3
+2026-11-20 18:30:48,703 | WARNING | HRTA.JK empty data on attempt 4
+2026-11-20 18:30:49,231 | INFO | HRTA.JK - no data
+2026-11-20 18:30:50,662 | WARNING | HRUM.JK empty data on attempt 1
+2026-11-20 18:30:52,881 | WARNING | HRUM.JK empty data on attempt 2
+2026-11-20 18:30:55,822 | WARNING | HRUM.JK empty data on attempt 3
+2026-11-20 18:30:58,300 | WARNING | HRUM.JK empty data on attempt 4
+2026-11-20 18:30:59,371 | INFO | HRUM.JK - no data
+2026-11-20 18:31:00,545 | WARNING | ICBP.JK empty data on attempt 1
+2026-11-20 18:31:02,481 | WARNING | ICBP.JK empty data on attempt 2
+2026-11-20 18:31:04,516 | WARNING | ICBP.JK empty data on attempt 3
+2026-11-20 18:31:07,023 | WARNING | ICBP.JK empty data on attempt 4
+2026-11-20 18:31:07,774 | INFO | ICBP.JK - no data
+2026-11-20 18:31:09,125 | WARNING | INCO.JK empty data on attempt 1
+2026-11-20 18:31:10,993 | WARNING | INCO.JK empty data on attempt 2
+2026-11-20 18:31:13,478 | WARNING | INCO.JK empty data on attempt 3
+2026-11-20 18:31:15,252 | WARNING | INCO.JK empty data on attempt 4
+2026-11-20 18:31:15,755 | INFO | INCO.JK - no data
+2026-11-20 18:31:17,069 | WARNING | INDF.JK empty data on attempt 1
+2026-11-20 18:31:19,662 | WARNING | INDF.JK empty data on attempt 2
+2026-11-20 18:31:22,039 | WARNING | INDF.JK empty data on attempt 3
+2026-11-20 18:31:24,587 | WARNING | INDF.JK empty data on attempt 4
+2026-11-20 18:31:25,797 | INFO | INDF.JK - no data
+2026-11-20 18:31:27,027 | WARNING | INDY.JK empty data on attempt 1
+2026-11-20 18:31:28,969 | WARNING | INDY.JK empty data on attempt 2
+2026-11-20 18:31:31,768 | WARNING | INDY.JK empty data on attempt 3
+2026-11-20 18:31:33,589 | WARNING | INDY.JK empty data on attempt 4
+2026-11-20 18:31:34,646 | INFO | INDY.JK - no data
+2026-11-20 18:31:35,865 | WARNING | INKP.JK empty data on attempt 1
+2026-11-20 18:31:37,808 | WARNING | INKP.JK empty data on attempt 2
+2026-11-20 18:31:39,822 | WARNING | INKP.JK empty data on attempt 3
+2026-11-20 18:31:41,966 | WARNING | INKP.JK empty data on attempt 4
+2026-11-20 18:31:42,469 | INFO | INKP.JK - no data
+2026-11-20 18:31:44,147 | WARNING | INTP.JK empty data on attempt 1
+2026-11-20 18:31:46,886 | WARNING | INTP.JK empty data on attempt 2
+2026-11-20 18:31:49,313 | WARNING | INTP.JK empty data on attempt 3
+2026-11-20 18:31:51,711 | WARNING | INTP.JK empty data on attempt 4
+2026-11-20 18:31:52,599 | INFO | INTP.JK - no data
+2026-11-20 18:31:53,954 | WARNING | ISAT.JK empty data on attempt 1
+2026-11-20 18:31:56,247 | WARNING | ISAT.JK empty data on attempt 2
+2026-11-20 18:31:58,571 | WARNING | ISAT.JK empty data on attempt 3
+2026-11-20 18:32:00,688 | WARNING | ISAT.JK empty data on attempt 4
+2026-11-20 18:32:01,791 | INFO | ISAT.JK - no data
+2026-11-20 18:32:03,143 | WARNING | ITMG.JK empty data on attempt 1
+2026-11-20 18:32:05,492 | WARNING | ITMG.JK empty data on attempt 2
+2026-11-20 18:32:07,581 | WARNING | ITMG.JK empty data on attempt 3
+2026-11-20 18:32:10,085 | WARNING | ITMG.JK empty data on attempt 4
+2026-11-20 18:32:11,539 | INFO | ITMG.JK - no data
+2026-11-20 18:32:12,717 | WARNING | JPFA.JK empty data on attempt 1
+2026-11-20 18:32:15,129 | WARNING | JPFA.JK empty data on attempt 2
+2026-11-20 18:32:17,802 | WARNING | JPFA.JK empty data on attempt 3
+2026-11-20 18:32:19,743 | WARNING | JPFA.JK empty data on attempt 4
+2026-11-20 18:32:20,801 | INFO | JPFA.JK - no data
+2026-11-20 18:32:22,128 | WARNING | JSMR.JK empty data on attempt 1
+2026-11-20 18:32:24,770 | WARNING | JSMR.JK empty data on attempt 2
+2026-11-20 18:32:27,938 | WARNING | JSMR.JK empty data on attempt 3
+2026-11-20 18:32:30,152 | WARNING | JSMR.JK empty data on attempt 4
+2026-11-20 18:32:30,801 | INFO | JSMR.JK - no data
+2026-11-20 18:32:32,036 | WARNING | KIJA.JK empty data on attempt 1
+2026-11-20 18:32:34,260 | WARNING | KIJA.JK empty data on attempt 2
+2026-11-20 18:32:36,472 | WARNING | KIJA.JK empty data on attempt 3
+2026-11-20 18:32:38,693 | WARNING | KIJA.JK empty data on attempt 4
+2026-11-20 18:32:39,440 | INFO | KIJA.JK - no data
+2026-11-20 18:32:40,767 | WARNING | KLBF.JK empty data on attempt 1
+2026-11-20 18:32:43,692 | WARNING | KLBF.JK empty data on attempt 2
+2026-11-20 18:32:45,944 | WARNING | KLBF.JK empty data on attempt 3
+2026-11-20 18:32:47,908 | WARNING | KLBF.JK empty data on attempt 4
+2026-11-20 18:32:48,896 | INFO | KLBF.JK - no data
+2026-11-20 18:32:50,525 | WARNING | KPIG.JK empty data on attempt 1
+2026-11-20 18:32:52,785 | WARNING | KPIG.JK empty data on attempt 2
+2026-11-20 18:32:55,334 | WARNING | KPIG.JK empty data on attempt 3
+2026-11-20 18:32:57,751 | WARNING | KPIG.JK empty data on attempt 4
+2026-11-20 18:32:58,773 | INFO | KPIG.JK - no data
+2026-11-20 18:33:00,150 | WARNING | MAPA.JK empty data on attempt 1
+2026-11-20 18:33:02,508 | WARNING | MAPA.JK empty data on attempt 2
+2026-11-20 18:33:04,279 | WARNING | MAPA.JK empty data on attempt 3
+2026-11-20 18:33:06,342 | WARNING | MAPA.JK empty data on attempt 4
+2026-11-20 18:33:07,457 | INFO | MAPA.JK - no data
+2026-11-20 18:33:08,719 | WARNING | MAPI.JK empty data on attempt 1
+2026-11-20 18:33:10,814 | WARNING | MAPI.JK empty data on attempt 2
+2026-11-20 18:33:13,200 | WARNING | MAPI.JK empty data on attempt 3
+2026-11-20 18:33:16,035 | WARNING | MAPI.JK empty data on attempt 4
+2026-11-20 18:33:17,422 | INFO | MAPI.JK - no data
+2026-11-20 18:33:18,572 | WARNING | MBMA.JK empty data on attempt 1
+2026-11-20 18:33:21,442 | WARNING | MBMA.JK empty data on attempt 2
+2026-11-20 18:33:24,049 | WARNING | MBMA.JK empty data on attempt 3
+2026-11-20 18:33:26,376 | WARNING | MBMA.JK empty data on attempt 4
+2026-11-20 18:33:27,293 | INFO | MBMA.JK - no data
+2026-11-20 18:33:28,577 | WARNING | MDKA.JK empty data on attempt 1
+2026-11-20 18:33:30,822 | WARNING | MDKA.JK empty data on attempt 2
+2026-11-20 18:33:32,844 | WARNING | MDKA.JK empty data on attempt 3
+2026-11-20 18:33:34,898 | WARNING | MDKA.JK empty data on attempt 4
+2026-11-20 18:33:35,789 | INFO | MDKA.JK - no data
+2026-11-20 18:33:37,039 | WARNING | MEDC.JK empty data on attempt 1
+2026-11-20 18:33:39,451 | WARNING | MEDC.JK empty data on attempt 2
+2026-11-20 18:33:41,559 | WARNING | MEDC.JK empty data on attempt 3
+2026-11-20 18:33:43,784 | WARNING | MEDC.JK empty data on attempt 4
+2026-11-20 18:33:45,277 | INFO | MEDC.JK - no data
+2026-11-20 18:33:46,674 | WARNING | MIKA.JK empty data on attempt 1
+2026-11-20 18:33:48,945 | WARNING | MIKA.JK empty data on attempt 2
+2026-11-20 18:33:51,558 | WARNING | MIKA.JK empty data on attempt 3
+2026-11-20 18:33:53,947 | WARNING | MIKA.JK empty data on attempt 4
+2026-11-20 18:33:55,013 | INFO | MIKA.JK - no data
+2026-11-20 18:33:56,232 | WARNING | MYOR.JK empty data on attempt 1
+2026-11-20 18:33:58,294 | WARNING | MYOR.JK empty data on attempt 2
+2026-11-20 18:34:00,421 | WARNING | MYOR.JK empty data on attempt 3
+2026-11-20 18:34:02,830 | WARNING | MYOR.JK empty data on attempt 4
+2026-11-20 18:34:03,451 | INFO | MYOR.JK - no data
+2026-11-20 18:34:04,939 | WARNING | PANI.JK empty data on attempt 1
+2026-11-20 18:34:07,537 | WARNING | PANI.JK empty data on attempt 2
+2026-11-20 18:34:10,187 | WARNING | PANI.JK empty data on attempt 3
+2026-11-20 18:34:12,477 | WARNING | PANI.JK empty data on attempt 4
+2026-11-20 18:34:13,422 | INFO | PANI.JK - no data
+2026-11-20 18:34:14,587 | WARNING | PGAS.JK empty data on attempt 1
+2026-11-20 18:34:16,697 | WARNING | PGAS.JK empty data on attempt 2
+2026-11-20 18:34:18,479 | WARNING | PGAS.JK empty data on attempt 3
+2026-11-20 18:34:20,480 | WARNING | PGAS.JK empty data on attempt 4
+2026-11-20 18:34:21,414 | INFO | PGAS.JK - no data
+2026-11-20 18:34:22,677 | WARNING | PGEO.JK empty data on attempt 1
+2026-11-20 18:34:24,524 | WARNING | PGEO.JK empty data on attempt 2
+2026-11-20 18:34:26,961 | WARNING | PGEO.JK empty data on attempt 3
+2026-11-20 18:34:29,164 | WARNING | PGEO.JK empty data on attempt 4
+2026-11-20 18:34:29,991 | INFO | PGEO.JK - no data
+2026-11-20 18:34:31,326 | WARNING | PNLF.JK empty data on attempt 1
+2026-11-20 18:34:33,498 | WARNING | PNLF.JK empty data on attempt 2
+2026-11-20 18:34:35,706 | WARNING | PNLF.JK empty data on attempt 3
+2026-11-20 18:34:38,250 | WARNING | PNLF.JK empty data on attempt 4
+2026-11-20 18:34:39,403 | INFO | PNLF.JK - no data
+2026-11-20 18:34:40,636 | WARNING | PTBA.JK empty data on attempt 1
+2026-11-20 18:34:43,005 | WARNING | PTBA.JK empty data on attempt 2
+2026-11-20 18:34:45,802 | WARNING | PTBA.JK empty data on attempt 3
+2026-11-20 18:34:48,474 | WARNING | PTBA.JK empty data on attempt 4
+2026-11-20 18:34:49,103 | INFO | PTBA.JK - no data
+2026-11-20 18:34:50,624 | WARNING | PTRO.JK empty data on attempt 1
+2026-11-20 18:34:53,097 | WARNING | PTRO.JK empty data on attempt 2
+2026-11-20 18:34:55,783 | WARNING | PTRO.JK empty data on attempt 3
+2026-11-20 18:34:58,558 | WARNING | PTRO.JK empty data on attempt 4
+2026-11-20 18:34:59,860 | INFO | PTRO.JK - no data
+2026-11-20 18:35:01,166 | WARNING | PWON.JK empty data on attempt 1
+2026-11-20 18:35:03,574 | WARNING | PWON.JK empty data on attempt 2
+2026-11-20 18:35:06,090 | WARNING | PWON.JK empty data on attempt 3
+2026-11-20 18:35:08,067 | WARNING | PWON.JK empty data on attempt 4
+2026-11-20 18:35:08,681 | INFO | PWON.JK - no data
+2026-11-20 18:35:09,862 | WARNING | RAJA.JK empty data on attempt 1
+2026-11-20 18:35:12,540 | WARNING | RAJA.JK empty data on attempt 2
+2026-11-20 18:35:14,391 | WARNING | RAJA.JK empty data on attempt 3
+2026-11-20 18:35:16,967 | WARNING | RAJA.JK empty data on attempt 4
+2026-11-20 18:35:17,834 | INFO | RAJA.JK - no data
+2026-11-20 18:35:19,088 | WARNING | RATU.JK empty data on attempt 1
+2026-11-20 18:35:21,566 | WARNING | RATU.JK empty data on attempt 2
+2026-11-20 18:35:24,222 | WARNING | RATU.JK empty data on attempt 3
+2026-11-20 18:35:25,925 | WARNING | RATU.JK empty data on attempt 4
+2026-11-20 18:35:26,642 | INFO | RATU.JK - no data
+2026-11-20 18:35:27,952 | WARNING | SCMA.JK empty data on attempt 1
+2026-11-20 18:35:30,030 | WARNING | SCMA.JK empty data on attempt 2
+2026-11-20 18:35:32,104 | WARNING | SCMA.JK empty data on attempt 3
+2026-11-20 18:35:34,346 | WARNING | SCMA.JK empty data on attempt 4
+2026-11-20 18:35:34,979 | INFO | SCMA.JK - no data
+2026-11-20 18:35:36,516 | WARNING | SIDO.JK empty data on attempt 1
+2026-11-20 18:35:39,024 | WARNING | SIDO.JK empty data on attempt 2
+2026-11-20 18:35:41,683 | WARNING | SIDO.JK empty data on attempt 3
+2026-11-20 18:35:43,842 | WARNING | SIDO.JK empty data on attempt 4
+2026-11-20 18:35:44,613 | INFO | SIDO.JK - no data
+2026-11-20 18:35:46,052 | WARNING | SMGR.JK empty data on attempt 1
+2026-11-20 18:35:48,088 | WARNING | SMGR.JK empty data on attempt 2
+2026-11-20 18:35:50,598 | WARNING | SMGR.JK empty data on attempt 3
+2026-11-20 18:35:52,472 | WARNING | SMGR.JK empty data on attempt 4
+2026-11-20 18:35:53,127 | INFO | SMGR.JK - no data
+2026-11-20 18:35:54,493 | WARNING | SMRA.JK empty data on attempt 1
+2026-11-20 18:35:56,440 | WARNING | SMRA.JK empty data on attempt 2
+2026-11-20 18:35:58,545 | WARNING | SMRA.JK empty data on attempt 3
+2026-11-20 18:36:01,326 | WARNING | SMRA.JK empty data on attempt 4
+2026-11-20 18:36:02,031 | INFO | SMRA.JK - no data
+2026-11-20 18:36:03,363 | WARNING | SSIA.JK empty data on attempt 1
+2026-11-20 18:36:05,763 | WARNING | SSIA.JK empty data on attempt 2
+2026-11-20 18:36:08,616 | WARNING | SSIA.JK empty data on attempt 3
+2026-11-20 18:36:10,404 | WARNING | SSIA.JK empty data on attempt 4
+2026-11-20 18:36:11,618 | INFO | SSIA.JK - no data
+2026-11-20 18:36:12,933 | WARNING | TAPG.JK empty data on attempt 1
+2026-11-20 18:36:14,745 | WARNING | TAPG.JK empty data on attempt 2
+2026-11-20 18:36:16,709 | WARNING | TAPG.JK empty data on attempt 3
+2026-11-20 18:36:20,398 | WARNING | TAPG.JK empty data on attempt 4
+2026-11-20 18:36:21,507 | INFO | TAPG.JK - no data
+2026-11-20 18:36:22,874 | WARNING | TLKM.JK empty data on attempt 1
+2026-11-20 18:36:25,602 | WARNING | TLKM.JK empty data on attempt 2
+2026-11-20 18:36:28,362 | WARNING | TLKM.JK empty data on attempt 3
+2026-11-20 18:36:30,558 | WARNING | TLKM.JK empty data on attempt 4
+2026-11-20 18:36:31,662 | INFO | TLKM.JK - no data
+2026-11-20 18:36:32,958 | WARNING | TOWR.JK empty data on attempt 1
+2026-11-20 18:36:35,433 | WARNING | TOWR.JK empty data on attempt 2
+2026-11-20 18:36:38,083 | WARNING | TOWR.JK empty data on attempt 3
+2026-11-20 18:36:40,098 | WARNING | TOWR.JK empty data on attempt 4
+2026-11-20 18:36:40,817 | INFO | TOWR.JK - no data
+2026-11-20 18:36:42,025 | WARNING | TPIA.JK empty data on attempt 1
+2026-11-20 18:36:44,569 | WARNING | TPIA.JK empty data on attempt 2
+2026-11-20 18:36:46,776 | WARNING | TPIA.JK empty data on attempt 3
+2026-11-20 18:36:48,919 | WARNING | TPIA.JK empty data on attempt 4
+2026-11-20 18:36:49,816 | INFO | TPIA.JK - no data
+2026-11-20 18:36:50,968 | WARNING | UNTR.JK empty data on attempt 1
+2026-11-20 18:36:53,667 | WARNING | UNTR.JK empty data on attempt 2
+2026-11-20 18:36:55,546 | WARNING | UNTR.JK empty data on attempt 3
+2026-11-20 18:36:57,832 | WARNING | UNTR.JK empty data on attempt 4
+2026-11-20 18:36:58,592 | INFO | UNTR.JK - no data
+2026-11-20 18:36:59,929 | WARNING | UNVR.JK empty data on attempt 1
+2026-11-20 18:37:02,577 | WARNING | UNVR.JK empty data on attempt 2
+2026-11-20 18:37:04,998 | WARNING | UNVR.JK empty data on attempt 3
+2026-11-20 18:37:06,968 | WARNING | UNVR.JK empty data on attempt 4
+2026-11-20 18:37:08,308 | INFO | UNVR.JK - no data
+2026-11-20 18:37:09,623 | WARNING | WIFI.JK empty data on attempt 1
+2026-11-20 18:37:11,324 | WARNING | WIFI.JK empty data on attempt 2
+2026-11-20 18:37:14,052 | WARNING | WIFI.JK empty data on attempt 3
+2026-11-20 18:37:16,460 | WARNING | WIFI.JK empty data on attempt 4
+2026-11-20 18:37:17,815 | INFO | WIFI.JK - no data
+2026-11-20 18:37:17,816 | INFO | SCAN DONE | scanned=0 failed=80 setups=0 output=alert.csv
